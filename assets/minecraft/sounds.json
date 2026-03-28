@@ -1,0 +1,23 @@
+{
+  "block.chest.open": {
+    "replace": true,
+    "sounds": [
+      "block/chest/open"
+    ]
+  },
+  "block.chest.close": {
+    "replace": true,
+    "sounds": [
+      "block/chest/close"
+    ]
+  },
+  "music_disc.13": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "records/13",
+        "stream": true
+      }
+    ]
+  }
+}
