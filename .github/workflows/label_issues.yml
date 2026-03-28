@@ -1,15 +1,15 @@
-name: Auto Label Issue
+name: Add Triage Label
 on:
   issues:
     types: [opened]
 
 jobs:
-  label_issue:
+  label:
     runs-on: ubuntu-latest
     permissions:
-      issues: write # Garante permissão no código
+      issues: write
     steps:
-      - name: Add label
+      - name: Label issue
         run: gh issue edit "$NUMBER" --add-label "triage needed"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
