@@ -4,18 +4,13 @@ on:
     types: [opened]
 
 jobs:
-  add-label:
+  label_issue:
     runs-on: ubuntu-latest
     permissions:
-      issues: write
+      issues: write # Garante permissão no código
     steps:
-      - name: Add triage label
-        uses: actions/github-script@v7
-        with:
-          script: |
-            github.rest.issues.addLabels({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              labels: ['triage needed']
-            })
+      - name: Add label
+        run: gh issue edit "$NUMBER" --add-label "triage needed"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NUMBER: ${{ github.event.issue.number }}
